@@ -14,13 +14,13 @@ body{
     top: 0;
 
 }
-main{
+.wrapper{
     flex-direction:column;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
-main header {
+.wrapper header {
     border: 5px dashed purple;
     width: 100%;
     
@@ -47,24 +47,27 @@ li{
 {
 ul{display: none;}
 }
+image {
+    max-width: 100%;
+}
+
 form{
     border: 5px dashed red;
     display: flex;
     flex-direction: column;
+    
+    
 }   
 input{
     padding: 5px;
 }
-image {
-    max-width: 100%;
-}
-article{
-    flex-direction:column;
+.wrapper{
+    border: 5px palevioletred;
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
     align-items: center;
-}   
-article header{
-    border: 5px dashed purple;
-    width: 100%;
 }
+form{
+    width: 50%;
+}
+
