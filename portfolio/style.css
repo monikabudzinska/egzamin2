@@ -1,1 +1,35 @@
-body{background-color: rgb(249, 219, 238);}
+body{
+    background-color: rgb(249, 219, 238);
+    margin: 0px;
+}
+
+.bodyHeader{
+    border: 5px dashed red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+main header {
+    border: 5px dashed purple
+}
+h1{
+    /* Jeśli podajemy dwie wartości to są góra dół, jeżeli 4 to zgodnie ze wskazókami zegara */
+    margin: 10px;
+}
+ul{
+    border: 5px dashed rgb(241, 69, 126);
+    list-style-type: none;
+    margin: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+li{
+    border: 1px dashed rgb(255, 132, 0);
+}
+/* warunek wyłapujący wyświetlanie na telefonie */
+@media(max-width:768px)
+{
+ul{display: none;}
+}
