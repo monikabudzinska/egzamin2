@@ -45,7 +45,7 @@ li{
 /* warunek wyłapujący wyświetlanie na telefonie */
 @media(max-width:768px)
 {
-ul{display: none;}
+ul{flex-direction: column;}
 }
 image {
     max-width: 100%;
@@ -69,5 +69,9 @@ input{
 }
 form{
     width: 50%;
+}
+/* Ustawianie elementow, żeby się nei rozjeżdżały */
+*{
+    box-sizing: border-box;
 }
 

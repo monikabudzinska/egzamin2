@@ -1,0 +1,59 @@
+/* Selektro gwiazdki odnosi się do wszystkich elementów na stronie */
+/* pozwwal na skalowanie elementów włączając padding i border
+(domyślnym zachowaniem przy skalowaniu elementow jest branie pod uwagę
+tylko wielkości elementu - bez border i padding */
+*{box-sizing: border-box;
+}
+body{
+    background-color: plum;
+}
+main{
+    border: 2px dashed red;
+}
+article{
+    border: 2px dashed blue;
+   /* position relative, zachowuje się jak static,
+   czyli domyślnie  ale nie jest static, więc pozycje wewnątrz 
+   dostosowują się do niej */
+    position:relative;
+    /* szerokość na 90 ze 100 kratek okna */
+    width: 90vw;
+    /* wysokość na 90 ze 100 kratek okna */
+    height: 90vw;
+}
+/* article p{
+    border: 2px dashed yellow;
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+article img{
+    border: 2px dashed darkorange;
+    position: absolute;
+    width: 100%;
+} */
+/* position absolute pozwala nalożyć jeden element na drugi,
+nie zwraca uwagi na rodzica, a dostosowuje się do przodka który nie jest w ozycji */
+article p,
+article img {
+    position: absolute;
+    width: 100%;
+    border: 2px dashed green;
+    margin: 0;
+    /* wyśrotkowani ewnętrza elementów */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+article p{
+    background-color: blueviolet;
+   /* opożnia zmianę elementów o jakiś czas */
+    transition:.5s;
+    /* jeśli używamy wartości mniejszej niż 1 nie musimy używać zera */
+    top:  0;
+}
+/* active odnosi się do elementu po kliknięciu */
+/* hower odnosi się do elementu po nmakierowaniu myszka (nie dziala na mobilnych */
+article p:active{
+    opacity: 0;
+}
