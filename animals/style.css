@@ -4,14 +4,25 @@
 tylko wielkości elementu - bez border i padding */
 *{box-sizing: border-box;
 }
+header {
+    position: sticky;
+    top:0;
+    background-color:green;         
+    z-index:1;
+    padding:.1rem 1rem;
+} 
+
+
 body{
-    background-color: plum;
+    background-color:mediumseagreen;
+    margin: 0;
 }
 main{
-    border: 2px dashed red;
+    display: flex;
+    align-items: center;
 }
 article{
-    border: 2px dashed blue;
+
    /* position relative, zachowuje się jak static,
    czyli domyślnie  ale nie jest static, więc pozycje wewnątrz 
    dostosowują się do niej */
@@ -20,6 +31,8 @@ article{
     width: 90vw;
     /* wysokość na 90 ze 100 kratek okna */
     height: 90vw;
+    display: flex;
+    align-items: center;
 }
 /* article p{
     border: 2px dashed yellow;
@@ -38,22 +51,39 @@ article p,
 article img {
     position: absolute;
     width: 100%;
-    border: 2px dashed green;
-    margin: 0;
+    height: 100%;
+        margin: 0;
     /* wyśrotkowani ewnętrza elementów */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 article p{
-    background-color: blueviolet;
+    background-color: rgb(4, 73, 4);
    /* opożnia zmianę elementów o jakiś czas */
     transition:.5s;
     /* jeśli używamy wartości mniejszej niż 1 nie musimy używać zera */
-    top:  0;
-}
+   }
 /* active odnosi się do elementu po kliknięciu */
 /* hower odnosi się do elementu po nmakierowaniu myszka (nie dziala na mobilnych */
-article p:active{
+article p:active {
     opacity: 0;
 }
+@media (min-width: 768px){
+    article {width: 35vw;
+            height: 35vw;
+            margin-bottom: 5vw;}
+        }
+main{
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: space-evenly;
+}
+footer{
+    position:fixed;
+    width:100%;
+    bottom:0;
+    left:0;
+    background-color:green;
+    padding-left:2rem;
+  }       
