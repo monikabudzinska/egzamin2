@@ -1,18 +1,31 @@
+*{
+    box-sizing: border-box;
+}
+:root{
+    --foregrand-dark: #425BDB;
+    --foregrand-light: #7B3AE8;
+    --background-dark: #8BB3E8;
+    --backgrand-light: #425BDB;
+
+}
 body{
     background-color: rgb(249, 219, 238);
     margin: 0px;
     min-height: 1000px;
 }
+a{
+    text-decoration: none;
+    color: inherit;
+}
 
 .bodyHeader{
-    border: 5px dashed red;
+    background-color:rgb(241, 69, 126);
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: sticky; 
     /* pozycje sticky używamy do menu */
     top: 0;
-
 }
 .wrapper{
     flex-direction:column;
@@ -21,7 +34,6 @@ body{
     align-items: center;
 }
 .wrapper header {
-    border: 5px dashed purple;
     width: 100%;
     
     
@@ -29,40 +41,100 @@ body{
 h1{
     /* Jeśli podajemy dwie wartości to są góra dół, jeżeli 4 to zgodnie ze wskazókami zegara */
     margin: 10px;
+    font-size: clamp(1.3rem, 2.5vw, 2rem);
+
 }
-ul{
-    border: 5px dashed rgb(241, 69, 126);
-    list-style-type: none;
-    margin: 20px;
-    padding: 10px;
-    display: flex;
-    justify-content: space-around;
+#toggler{
+    display: none;
+}
+#toggler:checked ~ ul{
+  right: 0;
     
 }
+ul{
+    list-style-type: none;
+    display: flex;
+    position: fixed;
+    top: 3.2rem;
+    right: -100%;
+    background-color: var(--foregrand-light);
+    height: calc(100% - 3.2rem);
+    flex-direction: column;
+    transition:.5s;
+    padding: .5rem;
+}
+label{
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1.5rem;
+}
+label div{
+    height: 2px;
+    width: 100%;
+    background-color: black;
+    position: absolute;
+}
+label div:nth-child(1){
+    top:calc(20% - 1px);
+}
+label div:nth-child(2){
+    top:calc(50% - 1px);
+}
+label div:nth-child(3){
+    top:calc(80% - 1px);
+}
+#toggler:checked ~ label div:nth-child(1){
+    transform: rotate(45deg);
+    top: calc(50% - 2px)
+}
+#toggler:checked ~ label div:nth-child(2){
+    opacity: 0;
+}
+#toggler:checked ~ label div:nth-child(3){
+ transform: rotate(-45deg );
+    top: calc(50% - 2px)
+}
+
+
 li{
-    border: 1px dashed rgb(255, 132, 0);
+    top: 0;
+    left: 0;
+    margin: 3rem;
 }
-/* warunek wyłapujący wyświetlanie na telefonie */
-@media(max-width:768px)
-{
-ul{flex-direction: column;}
+/* warunek wyłapujący wyświetlanie na komputerze */
+@media(min-width:768px) {
+    ul{ flex-direction: row;
+        position: static;
+        background-color: transparent;
+    }
+    label{
+        display: none;
+    }
 }
+
+
+    
+
 image {
     max-width: 100%;
 }
 
 form{
-    border: 5px dashed red;
     display: flex;
     flex-direction: column;
+    padding: 15px;
+    gap: 5px;
     
     
 }   
-input{
+input, textarea{
     padding: 5px;
 }
 .wrapper{
-    border: 5px palevioletred;
+   
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -71,7 +143,9 @@ form{
     width: 50%;
 }
 /* Ustawianie elementow, żeby się nei rozjeżdżały */
-*{
-    box-sizing: border-box;
+footer{
+    display: flex;
+    justify-content: center;
+
 }
 
