@@ -80,9 +80,9 @@ ul{
     flex-direction: column;
     transition:.5s;
     padding: .5rem;
-    -webkit-box-shadow: 8px 23px 31px -8px rgba(66, 68, 90, 1);
-    -moz-box-shadow: 8px 23px 31px -8px rgba(66, 68, 90, 1);
-    box-shadow: 8px 23px 31px -8px rgba(66, 68, 90, 1);
+    -webkit-box-shadow: -16px 0px 38px 7px rgba(66, 68, 90, 1);
+    -moz-box-shadow: -16px 0px 38px 7px rgba(66, 68, 90, 1);
+    box-shadow: -16px 0px 38px 7px rgba(66, 68, 90, 1);
 }
 label{
     width: 2rem;
