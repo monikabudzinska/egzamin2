@@ -9,14 +9,14 @@ html {
 }
 
 :root {
-  --foregrand-dark: #ec93ce;
-  --foregrand-light: #c9c9c9;
-  --background-dark: #f6ceef;
-  --backgrand-light: #d4b7cb;
+  --foregrand-dark: #d7d7d7;
+  --foregrand-light: #ffffff;
+  --background-dark: #dfbac4;
+  --backgrand-light: #c9c9c9;
 }
 
 body {
-  background-color: rgb(249, 219, 238);
+  background-color: var(--foregrand-light);
   margin: 0px;
   min-height: 1000px;
   font-family: "Caveat", cursive;
@@ -31,7 +31,7 @@ body .material-symbols-outlined {
   margin: 0.5rem;
 }
 body .bodyHeader {
-  background-color: rgb(218, 197, 204);
+  background-color: var(--background-dark);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -40,7 +40,7 @@ body .bodyHeader {
   /* pozycje sticky używamy do menu */
   top: 0;
   /* box-shadow: ; */
-  box-shadow: 8px 23px 31px -8px rgb(66, 68, 90);
+  box-shadow: 0px 0px 41px -8px rgb(89, 89, 89);
 }
 body .bodyHeader h1 {
   /* Jeśli podajemy dwie wartości to są góra dół, jeżeli 4 to zgodnie ze wskazókami zegara */
@@ -70,12 +70,12 @@ body nav ul {
   position: fixed;
   top: 3.5rem;
   right: -100%;
-  background-color: var(--foregrand-light);
+  background-color: var(--foregrand-dark);
   height: calc(100% - 3.5rem);
   flex-direction: column;
   transition: 0.5s;
   padding: 0.5rem;
-  box-shadow: -16px 0px 38px 7px rgb(66, 68, 90);
+  box-shadow: 0px 0px 41px -8px rgb(89, 89, 89);
 }
 body nav ul li {
   top: 0;
@@ -131,20 +131,20 @@ body nav label div:nth-child(3) {
   margin: 1px;
 }
 .wrapper .content table {
-  box-shadow: 8px 23px 31px -8px rgb(66, 68, 90);
+  box-shadow: 8px 23px 31px -8px rgb(145, 147, 163);
   width: 100%;
   padding: 1.5rem;
   border-collapse: collapse;
 }
 .wrapper .content table tr:nth-child(even) {
-  background-color: rgb(206, 150, 162);
+  background-color: var(--foregrand-dark);
 }
 .wrapper .content table tr td {
-  background-color: rgb(198, 139, 159);
+  background-color: var(--background-dark);
   padding: 0.3rem;
 }
 .wrapper .content table tr th {
-  background-color: var(--foregrand-light);
+  background-color: var(--foregrand-dark);
   padding: 0.5rem;
 }
 .wrapper .image {
@@ -158,9 +158,10 @@ body nav label div:nth-child(3) {
   flex-direction: column;
   padding: 15px;
   gap: 5px;
-  background: pink;
-  box-shadow: palevioletred;
+  background: var(--background-dark);
+  box-shadow: var(--foregrand-dark);
   border-radius: 0.5rem;
+  box-shadow: 0px 0px 41px -8px rgb(89, 89, 89);
 }
 .wrapper form input, .wrapper form textarea {
   padding: 5px;
