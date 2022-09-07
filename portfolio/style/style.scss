@@ -36,6 +36,7 @@ body{
         align-items: center;
         position: fixed; 
         width: 100%;
+        padding: .1rem;
         /* pozycje sticky używamy do menu */
         top: 0;
         /* box-shadow: ; */
@@ -81,10 +82,10 @@ body{
             flex-direction: column;
             transition:.5s;
             padding: .5rem;
+            border-radius: 2rem 0rem 0rem 0rem;
             -webkit-box-shadow: 0px 0px 41px -8px rgba(89, 89, 89, 1);
             -moz-box-shadow: 0px 0px 41px -8px rgba(89, 89, 89, 1);
-            box-shadow: 0px 0px 41px -8px rgba(89, 89, 89, 1);
-            li{
+            box-shadow: 0px 0px 41px -8px rgba(89, 89, 89, 1);            li{
                 top: 0;
                 left: 0;
                 margin: .3rem;
@@ -100,10 +101,10 @@ body{
         }
             div{
                 height: 2px;
-                width: 100%;
+                width: 80%;
                 background-color: black;
                 position: absolute;
-                transition: 0.2s;
+                transition: 0.3s;
                 &:nth-child(1){
                     top:calc(20% - 1px);
                 }
@@ -133,18 +134,28 @@ body{
             padding: .5rem;
         }
     }
+     
+    .image{
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+}
     .content{
         display: flex;
         flex-direction: column;
         align-items: center;
         margin: 1px; 
         table{
-            -webkit-box-shadow: 8px 23px 31px -8px rgb(139, 140, 151);
-            -moz-box-shadow: 8px 23px 31px -8px rgb(123, 125, 144);
-            box-shadow: 8px 23px 31px -8px rgb(145, 147, 163);
             width: 100%;
-            padding: 1.5rem;
-            border-collapse: collapse;
+            padding: 1rem;
+            background-color:var(--foregrand-dark);
+            border-radius: 1rem;
+            -webkit-box-shadow: 0px 0px 41px -8px rgba(89, 89, 89, 1);
+            -moz-box-shadow: 0px 0px 41px -8px rgba(89, 89, 89, 1);
+            box-shadow: 0px 0px 41px -8px rgba(89, 89, 89, 1);
             tr{
                 &:nth-child( even ){
                 background-color: var(--foregrand-dark);
@@ -154,27 +165,22 @@ body{
                     padding: .3rem;
                 }
                 th{
-                    background-color: var(--foregrand-dark);
+                    background-color: white;
                     padding: .5rem;
                 }
             }
+        
             
         }
           
     }
-    .image{
-        max-width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
     form{
         display: flex;
         flex-direction: column;
-        padding: 1px;
+        padding: 1rem;
         gap:5px;
         background:var(--background-dark);
-        border-radius: .5rem;
+        border-radius: 1rem;
         -webkit-box-shadow: 0px 0px 41px -8px rgba(89, 89, 89, 1);
         -moz-box-shadow: 0px 0px 41px -8px rgba(89, 89, 89, 1);
         box-shadow: 0px 0px 41px -8px rgba(89, 89, 89, 1);
@@ -218,6 +224,7 @@ footer{
         flex-direction: row !important;
         position: static !important;
         background-color: transparent;
+        
     }
     label{
         display: none;
@@ -228,8 +235,7 @@ footer{
     body{
         .bodyHeader nav {
           ul {
-            flex-direction: row;
-            position:static;
+            border-radius: 2rem 2rem 2rem 2rem;
           }
           label{
             display:none;
