@@ -49,29 +49,32 @@ body{
             font-size: clamp(1.3rem, 2.5vw, 2rem);
         }
     }
-        nav{
-            #toggler{
+    nav{
+        #toggler{
             display: none;
-            &:checked{
-                ~ ul{
-                    right: 0;
+                &:checked{
+                    ~ ul{
+                        right: 0;
+                    }
+                    ~ label div{
+                        &:nth-child(1){
+                            transform: rotate(45deg);
+                            top: calc(50% - 2px)
+                        }
+                        &:nth-child(2){
+                            opacity: 0;
+                        }
+                        &:nth-child(3){
+                            transform: rotate(-45deg );
+                            top: calc(50% - 2px);
+                        }
+                    }
                 }
-                ~ label div{
-                    &:nth-child(1){
-                        transform: rotate(45deg);
-                        top: calc(50% - 2px)
-                    }
-                    &:nth-child(2){
-                        opacity: 0;
-                    }
-                    &:nth-child(3){
-                        transform: rotate(-45deg );
-                        top: calc(50% - 2px);
-                    }
-                }
-            }
         }
-        ul{
+    }
+}
+    
+ul{
             list-style-type: none;
             display: flex;
             position: fixed;
@@ -85,7 +88,9 @@ body{
             border-radius: 2rem 0rem 0rem 0rem;
             -webkit-box-shadow: 0px 0px 41px -8px rgba(89, 89, 89, 1);
             -moz-box-shadow: 0px 0px 41px -8px rgba(89, 89, 89, 1);
-            box-shadow: 0px 0px 41px -8px rgba(89, 89, 89, 1);            li{
+            box-shadow: 0px 0px 41px -8px rgba(89, 89, 89, 1);
+
+            li{
                 top: 0;
                 left: 0;
                 margin: .3rem;
