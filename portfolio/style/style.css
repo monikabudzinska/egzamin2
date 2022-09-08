@@ -65,7 +65,8 @@ body nav #toggler:checked ~ label div:nth-child(3) {
   transform: rotate(-45deg);
   top: calc(50% - 2px);
 }
-body nav ul {
+
+ul {
   list-style-type: none;
   display: flex;
   position: fixed;
@@ -79,12 +80,13 @@ body nav ul {
   border-radius: 2rem 0rem 0rem 0rem;
   box-shadow: 0px 0px 41px -8px rgb(89, 89, 89);
 }
-body nav ul li {
+ul li {
   top: 0;
   left: 0;
   margin: 0.3rem;
 }
-body nav label {
+
+label {
   width: 2rem;
   height: 2rem;
   position: absolute;
@@ -92,20 +94,21 @@ body nav label {
   right: 0;
   margin: 1.5rem;
 }
-body nav div {
+
+div {
   height: 2px;
   width: 80%;
   background-color: black;
   position: absolute;
   transition: 0.3s;
 }
-body nav div:nth-child(1) {
+div:nth-child(1) {
   top: calc(20% - 1px);
 }
-body nav div:nth-child(2) {
+div:nth-child(2) {
   top: calc(50% - 1px);
 }
-body nav div:nth-child(3) {
+div:nth-child(3) {
   top: calc(80% - 1px);
 }
 
@@ -127,38 +130,33 @@ body nav div:nth-child(3) {
   margin: 0rem;
   padding: 0.5rem;
 }
-.wrapper .content {
+
+.content {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 1px;
 }
-.wrapper .content table {
+.content table {
   width: 100%;
   padding: 1rem;
   background-color: var(--foregrand-dark);
   border-radius: 1rem;
   box-shadow: 0px 0px 41px -8px rgb(89, 89, 89);
 }
-.wrapper .content table tr:nth-child(even) {
+.content table tr:nth-child(even) {
   background-color: var(--foregrand-dark);
 }
-.wrapper .content table tr td {
+.content table tr td {
   background-color: var(--background-dark);
   padding: 0.3rem;
 }
-.wrapper .content table tr th {
+.content table tr th {
   background-color: white;
   padding: 0.5rem;
 }
-.wrapper .image {
-  max-width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-color: darkslateblue;
-}
-.wrapper form {
+
+form {
   display: flex;
   flex-direction: column;
   padding: 1rem;
@@ -167,7 +165,7 @@ body nav div:nth-child(3) {
   border-radius: 1rem;
   box-shadow: 0px 0px 41px -8px rgb(89, 89, 89);
 }
-.wrapper form input, .wrapper form textarea {
+form input, form textarea {
   padding: 5px;
 }
 
@@ -199,6 +197,13 @@ footer footer p {
   margin: 0;
 }
 
+.image {
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* warunek wyłapujący wyświetlanie na komputerze */
 @media (min-width: 768px) {
   ul {
@@ -225,7 +230,7 @@ footer footer p {
   body .wrapper:nth-child(odd) {
     flex-direction: row-reverse;
   }
-  body .wrapper > * {
+  body .wrapper * {
     flex: 1;
     text-align: center;
     padding: 3rem;
