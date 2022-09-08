@@ -1,13 +1,4 @@
 @charset "UTF-8";
-html {
-  scroll-behavior: smooth;
-}
-
-* {
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-
 :root {
   --foregrand-dark: #d7d7d7;
   --foregrand-light: #ffffff;
@@ -15,20 +6,29 @@ html {
   --backgrand-light: #fdc9d592;
 }
 
-body {
-  background-color: var(--foregrand-light);
-  margin: 0px;
-  min-height: 1000px;
-  font-family: "Caveat", cursive;
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
-body a {
+* a {
   text-decoration: none;
   color: inherit;
   display: flex;
   align-items: center;
 }
-body .material-symbols-outlined {
+* .material-symbols-outlined {
   margin: 0.5rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--foregrand-light);
+  margin: 0px;
+  min-height: 1000px;
+  font-family: "Caveat", cursive;
 }
 body .bodyHeader {
   background-color: var(--background-dark);
@@ -65,28 +65,7 @@ body nav #toggler:checked ~ label div:nth-child(3) {
   transform: rotate(-45deg);
   top: calc(50% - 2px);
 }
-
-ul {
-  list-style-type: none;
-  display: flex;
-  position: fixed;
-  top: 3.5rem;
-  right: -100%;
-  background-color: var(--foregrand-dark);
-  height: calc(100% - 3.5rem);
-  flex-direction: column;
-  transition: 0.5s;
-  padding: 0.5rem;
-  border-radius: 2rem 0rem 0rem 0rem;
-  box-shadow: 0px 0px 41px -8px rgb(89, 89, 89);
-}
-ul li {
-  top: 0;
-  left: 0;
-  margin: 0.3rem;
-}
-
-label {
+body label {
   width: 2rem;
   height: 2rem;
   position: absolute;
@@ -94,29 +73,48 @@ label {
   right: 0;
   margin: 1.5rem;
 }
-
-div {
+body label div {
   height: 2px;
   width: 80%;
   background-color: black;
   position: absolute;
   transition: 0.3s;
 }
-div:nth-child(1) {
+body label div:nth-child(1) {
   top: calc(20% - 1px);
 }
-div:nth-child(2) {
+body label div:nth-child(2) {
   top: calc(50% - 1px);
 }
-div:nth-child(3) {
+body label div:nth-child(3) {
   top: calc(80% - 1px);
+}
+body ul {
+  position: fixed;
+  flex-direction: column;
+  background-color: var(--foregrand-dark);
+  list-style-type: none;
+  margin: 0;
+  padding: 0.5rem;
+  display: flex;
+  right: -100%;
+  top: 3.5rem;
+  height: calc(100% - 3.5rem);
+  transition: 0.5s;
+  border-radius: 2rem 0rem 0rem 0rem;
+  box-shadow: 0px 0px 41px -8px rgb(89, 89, 89);
+}
+body ul li {
+  top: 0;
+  left: 0;
+  margin: 0.3rem;
 }
 
 .wrapper {
-  flex-direction: column;
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
   padding-top: 6rem;
 }
 .wrapper header {
@@ -126,9 +124,17 @@ div:nth-child(3) {
   margin: 0;
   top: 3rem;
 }
-.wrapper header p {
-  margin: 0rem;
-  padding: 0.5rem;
+.wrapper form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 5px;
+  background: var(--background-dark);
+  border-radius: 1rem;
+  box-shadow: 0px 0px 41px -8px rgb(89, 89, 89);
+}
+.wrapper form input, .wrapper form textarea {
+  padding: 5px;
 }
 
 .content {
@@ -155,24 +161,19 @@ div:nth-child(3) {
   background-color: white;
   padding: 0.5rem;
 }
-
-form {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  gap: 5px;
-  background: var(--background-dark);
-  border-radius: 1rem;
-  box-shadow: 0px 0px 41px -8px rgb(89, 89, 89);
+.content p {
+  margin: 0rem;
+  padding: 0.5rem;
 }
-form input, form textarea {
-  padding: 5px;
+.content img {
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Ustawianie elementow, żeby się nei rozjeżdżały */
 footer {
-  display: flex;
-  justify-content: flex-start;
   margin-top: 3rem;
   background-color: black;
   color: white;
@@ -188,36 +189,15 @@ footer ol {
   padding: 1rem;
   width: 100%;
 }
-footer footer ol {
-  list-style: none;
+footer p {
   margin: 0;
-  padding: 0;
-}
-footer footer p {
-  margin: 0;
-}
-
-.image {
-  max-width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 /* warunek wyłapujący wyświetlanie na komputerze */
 @media (min-width: 768px) {
-  ul {
-    flex-direction: row !important;
-    position: static !important;
-    background-color: transparent;
-  }
-  label {
-    display: none;
-  }
-  table {
-    width: 100%;
-  }
   body .bodyHeader nav ul {
+    flex-direction: row;
+    position: static;
     border-radius: 2rem 2rem 2rem 2rem;
   }
   body .bodyHeader nav label {
@@ -230,7 +210,7 @@ footer footer p {
   body .wrapper:nth-child(odd) {
     flex-direction: row-reverse;
   }
-  body .wrapper * {
+  body .wrapper > * {
     flex: 1;
     text-align: center;
     padding: 3rem;
