@@ -27,7 +27,7 @@ function getSingleView (index){
     img.alt = views[index].alt
 }
 
-let currentSlide = 0;
+currentSlide = 0;
 
 getSingleView(currentSlide)
 
@@ -35,32 +35,21 @@ function modifyCurrentSlide (direction){
     if(direction == 'right'){
         currentSlide++;
     }
-
-    getSingleView(currentSlide)
-    
-    if(currentSlide >= views.lenght){
+    if(currentSlide >= views.length){
         currentSlide = 0;
     }
     if(direction == 'left'){
         currentSlide--;
     }
+    if(currentSlide <0){
+        currentSlide = views.length -1
+
+    }
     
     getSingleView(currentSlide)
 }
-
 const rightArr = document.querySelector('.right')
 rightArr .onclick = function(){modifyCurrentSlide('right')}
-
-function modifyCurrentSlide (direction){
-    if(direction == 'left'){
-        currentSlide++;
-    }
-    if(currentSlide >= views.lenght){
-        currentSlide = 0;
-    }
-    
-    getSingleView(currentSlide)
-}
 
 const leftArr = document.querySelector('.left')
 leftArr .onclick = function(){modifyCurrentSlide('left')}
