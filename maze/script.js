@@ -1,15 +1,15 @@
-
-function makewall(x, y, u, h){
+const gamePlane = document.querySelector('.gamePlane')
+function makewall(x, y, w, h){
     const wall = document.createElement('div')
     wall.style.cssText = `
     background : green;
-    width : $(w)%;
-    heigh : $(h)%;
-    left : 10%;
-    top : 20%;
+    width : ${w}%;
+    height : ${h}%;
+    left : ${x}%;
+    top : ${y}%;
     position:absolute;
     `
     gamePlane.append(wall)
 
 }
-makewall(0,0,20,20)
+makewall(20,20,20,20)
