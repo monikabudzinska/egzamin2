@@ -79,8 +79,33 @@ const game = {
         }
         game.init()
     }
+}
+game.init()
 
+const modal = {
+    dom : document.createElement('div'),
+    init(){
+        modal.dom.style.cssText = `
+        border: 10px dashed red;
+        position: fixed;
+        width: 80vw;
+        height: 80vw;
+        left: 10vw;
+        top: 10vh
+        background: red;
+        display: flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        `
+        document.body.append(modal.dom)
+        const h1 = document.createElement
+    },
+    show(){
+        modal.dom.style.display = "flex";
+    },
+    hide(){modal.dom.style.display = "none";
+    }
 }
 
-
-game.init()
+modal.init()
