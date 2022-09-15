@@ -5,6 +5,7 @@ function makewall(x, y, w, h, type ='wall'){
     let color = 'green'
     if(type =='start') {color = 'blue'}
     if(type =='meta') {color = 'red'}
+    if(type == 'time'){color = 'purple'}
     
     
     const wall = document.createElement('div')
@@ -27,6 +28,7 @@ function makewall(x, y, w, h, type ='wall'){
 //makewall(50,30,20,20)
 //makewall(50,30,20,20)
 const map = [
+    [80,0,20,20,'time'],
     [0,0,20,20,'start'],
     [10,20,20,10],
     [20,30,20,10],
@@ -41,13 +43,16 @@ for(const wall of map){
     makewall(...wall)
 }
 const game = {
+    maxTime : 5,
     buttons :  {
+        time: document.querySelector('.time'),
         start : document.querySelector('.start'),
         meta : document.querySelector('.meta'),
         walls: document.querySelectorAll('.wall'),
     },
     init(){
         game.buttons.start.onclick = function(){game.start()}
+        game.time = game.maxTime
     },
     start(){
         game.buttons.start.onclick = ""
@@ -56,6 +61,12 @@ const game = {
         for(const wall of game.buttons.walls){
             wall.addEventListener('mousemove', game.wallListener)
         }
+
+        game.interval = setInterval(function(){
+            game.time--
+            if(game.timre< 0 ){game.over(false)}
+            game.buttons.time.interHTML =game.time}, 1000)
+        
         console.log("GAME STARTED")
     },
     wallListener(e){
