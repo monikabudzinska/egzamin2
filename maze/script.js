@@ -105,7 +105,6 @@ const modal = {
         -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
         box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
         font-family: 'Bungee Spice', cursive;
-        font-family: 'Caveat', cursive;      
         `
         document.body.append(modal.dom)
         modal.h1 = document.createElement("h1")
