@@ -16,9 +16,7 @@ function makewall(x, y, w, h, type ='wall'){
     top : ${y}%;
     position:absolute;
     border-radius:10px;
-    -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
-    -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
-    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+
     `
     wall.className = 'wall'
     if(type != 'wall'){
@@ -87,7 +85,11 @@ const modal = {
     dom : document.createElement('div'),
     init(){
         modal.dom.style.cssText = `
-        background: purple;
+        background-color: rgba(209, 40, 251, 1);
+        background-image:  url(https://img.icons8.com/android/2x/happy.png);
+        background-size: auto;
+        background-position: left top;
+    background-repeat: repeat;
         text-align: center;
         border: 5px dashed pink;
         position: fixed;
@@ -105,6 +107,8 @@ const modal = {
         -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
         box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
         font-family: 'Bungee Spice', cursive;
+        text-shadow: 4px 4px 6px rgba(66, 68, 90, 1);
+        
         `
         document.body.append(modal.dom)
         modal.h1 = document.createElement("h1")
@@ -121,7 +125,9 @@ const modal = {
         -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
         box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
         background: yellow;
-        `
+        text-shadow: 4px 4px 6px rgba(66, 68, 90, 1);
+        font-family: 'Bungee Spice', cursive;
+                `
         button.onclick = function (){ modal.hide() }
         modal.dom.append(button)
 
@@ -136,5 +142,5 @@ const modal = {
 }
 
 modal.init()
-modal.show('KLIKNIJ NA NIEBISEKI KAFELEK, ABY ROZPOCZAC GRE')
+modal.show('KLIKNIJ NA NIEBISEKI KAFELEK,ABY ROZPOCZAC GRE')
 game.init()
