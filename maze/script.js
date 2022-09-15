@@ -4,7 +4,8 @@ function makewall(x, y, w, h, type ='wall'){
    
     let color = 'green'
     if(type =='start') {color = 'blue'}
-    if(type =='meta') {color = 'orange'}
+    if(type =='meta') {color = 'red'}
+    
     
     const wall = document.createElement('div')
     wall.style.cssText = `
@@ -14,6 +15,10 @@ function makewall(x, y, w, h, type ='wall'){
     left : ${x}%;
     top : ${y}%;
     position:absolute;
+    border-radius:10px;
+    -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
     `
     wall.className = 'wall'
     if(type != 'wall'){
@@ -48,7 +53,7 @@ const game = {
     },
     start(){
         game.buttons.start.onclick = ""
-        game.buttons.meta.addEventListener('mousemove', game.metaTrigger)
+        game.buttons.meta.addEventListener('mousemove', game.over)
         gamePlane.addEventListener('mousemove', game.gamePlaneListener)
         for(const wall of game.buttons.walls){
             wall.addEventListener('mousemove', game.wallListener)
@@ -62,17 +67,14 @@ const game = {
     gamePlaneListener(e){
         game.over(false)
     },
-    metaTrigger(){
-        game.over(true)
-    },
     over(result){
         if(result){
-            console.log("YOU WIN")
+            modal.show('WYGRANA')
         }
         else{
-            console.log("YOU LOSE")
+            modal.show('PRZEGRANA')
         }
-        game.buttons.meta.removeEventListener('mousemove', game.metaTrigger)
+        game.buttons.meta.removeEventListener('mousemove', game.over)
         gamePlane.removeEventListener('mousemove', game.gamePlaneListener)
         for(const wall of game.buttons.walls){
             wall.removeEventListener('mousemove', game.wallListener)
@@ -80,32 +82,60 @@ const game = {
         game.init()
     }
 }
-game.init()
 
 const modal = {
     dom : document.createElement('div'),
     init(){
         modal.dom.style.cssText = `
-        border: 10px dashed red;
+        background: purple;
+        text-align: center;
+        border: 5px dashed pink;
         position: fixed;
         width: 80vw;
-        height: 80vw;
+        height: 50vh;
         left: 10vw;
-        top: 10vh
-        background: red;
-        display: flex;
+        top: 25vh;
+        display:flex;
         flex-direction:column;
         align-items:center;
         justify-content:center;
+        border-radius:10px;
+        display:none;
+        -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+        -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+        box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+        font-family: 'Bungee Spice', cursive;
+        font-family: 'Caveat', cursive;      
         `
         document.body.append(modal.dom)
-        const h1 = document.createElement
+        modal.h1 = document.createElement("h1")
+        modal.h1.innerHTML = "XX"
+        modal.dom.append(modal.h1)
+
+        const button = document.createElement("button")
+        button.innerHTML = "OK"
+        button.style.cssText = 
+        `padding:1rem 4rem;
+        border-radius:1rem;
+        cursor:pointer;
+        -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+        -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+        box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+        background: yellow;
+        `
+        button.onclick = function (){ modal.hide() }
+        modal.dom.append(button)
+
     },
-    show(){
+    show(text){
         modal.dom.style.display = "flex";
+        modal.h1.innerHTML = text
+       
     },
     hide(){modal.dom.style.display = "none";
     }
 }
 
 modal.init()
+modal.show('KLIKNIJ NA NIEBISEKI KAFELEK, ABY ROZPOCZAC GRE')
+game.init()
