@@ -67,10 +67,12 @@ const game = {
     },
     over(result){
         if(result){
-            modal.show('WYGRANA')
+            modal.show('WYGRANA', 'green')
+            document.body.style.backgroundColor = 'green'
         }
         else{
-            modal.show('PRZEGRANA')
+            modal.show('PRZEGRANA' , 'red')
+            document.body.style.backgroundColor = 'red'
         }
         game.buttons.meta.removeEventListener('mousemove', game.over)
         gamePlane.removeEventListener('mousemove', game.gamePlaneListener)
@@ -83,13 +85,11 @@ const game = {
 
 const modal = {
     dom : document.createElement('div'),
+    h1 :  document.createElement("h1"),
     init(){
         modal.dom.style.cssText = `
-        background-color: rgba(209, 40, 251, 1);
-        background-image:  url(https://img.icons8.com/android/2x/happy.png);
-        background-size: auto;
-        background-position: left top;
-    background-repeat: repeat;
+        background-color: rgba(202, 89, 252, 1);
+        background-image: radial-gradient(circle, rgba(202, 89, 252, 1) 0%, rgba(174, 0, 255, 1) 50%, rgba(81, 0, 139, 1) 100%);
         text-align: center;
         border: 5px dashed pink;
         position: fixed;
@@ -106,7 +106,8 @@ const modal = {
         -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
         -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
         box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
-        font-family: 'Bungee Spice', cursive;
+        font-family: 'Black Ops One', cursive;
+       
         text-shadow: 4px 4px 6px rgba(66, 68, 90, 1);
         
         `
@@ -127,20 +128,22 @@ const modal = {
         background: yellow;
         text-shadow: 4px 4px 6px rgba(66, 68, 90, 1);
         font-family: 'Bungee Spice', cursive;
-                `
+        `
         button.onclick = function (){ modal.hide() }
         modal.dom.append(button)
 
     },
-    show(text){
+    show(text, color = 'yellow'){
+        modal.dom.style.backgroundColor = color
         modal.dom.style.display = "flex";
         modal.h1.innerHTML = text
        
     },
     hide(){modal.dom.style.display = "none";
+    document.body.style.backgroundColor ='#fff'
     }
 }
 
 modal.init()
-modal.show('KLIKNIJ NA NIEBISEKI KAFELEK,ABY ROZPOCZAC GRE')
+modal.show('KLIKNIJ NA NIEBISEKI KAFELEK, <br/> ABY ROZPOCZĄĆ GRĘ. <br/> Dojedź do pola czerwonego nie wyjeżdżając z pola zielonego :)')
 game.init()
